@@ -34,6 +34,11 @@ class Users with ChangeNotifier {
                 name: user.name,
                 email: user.email,
                 avatarUrl: '',
+                nroCartaoSUS: user.nroCartaoSUS,
+                dataNascimento: user.dataNascimento,
+                cpf: user.cpf,
+                nomeMaePaciente: user.nomeMaePaciente,
+                dataAgendamento: user.dataAgendamento,
               ),
       );
     } else {
@@ -46,6 +51,11 @@ class Users with ChangeNotifier {
           name: user.name,
           email: user.email,
           avatarUrl: user.avatarUrl,
+          nroCartaoSUS: user.nroCartaoSUS,
+          dataNascimento: user.dataNascimento,
+          cpf: user.cpf,
+          nomeMaePaciente: user.nomeMaePaciente,
+          dataAgendamento: user.dataAgendamento,
         ),
       );
     }
