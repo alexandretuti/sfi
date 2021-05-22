@@ -4,6 +4,7 @@ import 'package:flutter_app/models/User.dart';
 import 'package:flutter_app/provider/users.dart';
 import 'package:provider/provider.dart';
 
+
 class UserForm extends StatefulWidget {
   @override
   _UserFormState createState() => _UserFormState();
@@ -82,7 +83,7 @@ class _UserFormState extends State<UserForm> {
               }),
         ],
       ),
-      body: Padding(
+      body: SingleChildScrollView(
         padding: EdgeInsets.all(15),
         child: Form(
           key: _form,
@@ -93,9 +94,6 @@ class _UserFormState extends State<UserForm> {
                 initialValue: _formData['nroCartaoSUS'],
                 decoration: InputDecoration(labelText: 'Número cartão SUS'),
                 keyboardType: TextInputType.number,
-                inputFormatters: <TextInputFormatter>[
-                  FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                ],
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Cartão não informado';
@@ -111,6 +109,7 @@ class _UserFormState extends State<UserForm> {
               TextFormField(
                 initialValue: _formData['dataNascimento'],
                 decoration: InputDecoration(labelText: 'Data de nascimento'),
+                keyboardType: TextInputType.datetime,
                 validator: (value) {
                   if (value == null || value.trim().isEmpty) {
                     return 'Data de nascimento invalida!';
@@ -188,7 +187,6 @@ class _UserFormState extends State<UserForm> {
                 },
                 onSaved: (value) => _formData['dataAgendamento'] = _selectedDate.toString(),
               ),
-
               Container(
                 height: 70,
                 child: Row(
